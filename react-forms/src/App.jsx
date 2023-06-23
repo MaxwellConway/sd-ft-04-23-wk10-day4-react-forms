@@ -9,15 +9,21 @@ function App() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const randomNum = Math.floor(Math.random() * 9000000) + 1000000;
+      const movieIds = [1630029, 11138512, 11032374];
+      const moviePromises = [];
 
-      const getMovies = await fetch(
-        `http://www.omdbapi.com/?apikey=67b30870&i=tt${randomNum}`
-      );
+      for (const movieId of movieIds) {
+        const getMovie = fetch(
+          `http://www.omdbapi.com/?apikey=67b30870&i=tt${movieId}`
+        ).then((response) => response.json());
 
-      const jsonMovies = await getMovies.json();
-      setMovies(jsonMovies);
+        moviePromises.push(getMovie);
+      }
+
+      const movies = await Promise.all(moviePromises);
+      setMovies(movies);
     };
+
     fetchMovies();
   }, []);
 
