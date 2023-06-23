@@ -5,7 +5,7 @@ export default function MovieContainer({ movies }) {
 
   return (
     <>
-      <div>
+      <div className="movie-grid">
         {movieList.map((movie, index) => (
           <MovieCards key={index} movie={movie} />
         ))}

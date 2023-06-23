@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create three equal-width columns */
+  gap: 20px; /* Add some gap between movie cards */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  background-color: #ff6f61;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #d63f36;
+}

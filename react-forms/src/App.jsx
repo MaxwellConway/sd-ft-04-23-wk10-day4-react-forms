@@ -9,8 +9,10 @@ function App() {
 
   useEffect(() => {
     const fetchMovies = async () => {
+      const randomNum = Math.floor(Math.random() * 9000000) + 1000000;
+
       const getMovies = await fetch(
-        "http://www.omdbapi.com/?apikey=67b30870&i=tt1285017"
+        `http://www.omdbapi.com/?apikey=67b30870&i=tt${randomNum}`
       );
 
       const jsonMovies = await getMovies.json();
@@ -35,8 +37,10 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleFormSubmit}>
+      <h1>SEARCH FOR MOVIES</h1>
+      <form className="form-container" onSubmit={handleFormSubmit}>
         <input
+          className="form-input"
           type="text"
           name="search"
           onChange={(e) =>
@@ -44,7 +48,7 @@ function App() {
           }
           value={formData?.search}
         />
-        <input type="submit" value="Submit" />
+        <input className="submit-button" type="submit" value="Submit" />
       </form>
       <MovieContainer movies={movies} />
     </>
